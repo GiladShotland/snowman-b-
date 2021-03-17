@@ -10,16 +10,6 @@ namespace ariel
 {
     vector<int> numToArray(int num);
     string snowman(int num);
-    const std::vector<std::string> hatsTops{"      ", " ___ ", "  _  ", " ___ "};
-    const std::vector<std::string> hatsBottoms{" _===_ ", " ..... ", "  /_\\ ", " (_*_) "};
-    const std::vector<std::string> eyes{".", "o", "O", "-"};
-    const std::vector<std::string> nose{",", ".", "_", " "};
-    const std::vector<std::string> leftArmUpChar{" ", "\\", " ", " "};
-    const std::vector<std::string> leftArmDownChar{"<", " ", "/", " "};
-    const std::vector<std::string> rightArmUpChar{" ", "/", " ", " "};
-    const std::vector<std::string> rightArmDownChar{">", " ", "\\", " "};
-    const std::vector<std::string> torso{" : ", "] [", "> <", "   "};
-    const std::vector<std::string> base{" : ", "\" \"", "___", "   "};
 
     /*
     converting the number given to an array
@@ -54,6 +44,16 @@ namespace ariel
 
     string snowman(int num)
     {
+        const std::vector<std::string> hatsTops{"      ", "  ___ ", "   _  ", "  ___ "};
+        const std::vector<std::string> hatsBottoms{" _===_ ", " ..... ", "  /_\\ ", " (_*_) "};
+        const std::vector<std::string> eyes{".", "o", "O", "-"};
+        const std::vector<std::string> nose{",", ".", "_", " "};
+        const std::vector<std::string> leftArmUpChar{" ", "\\", " ", " "};
+        const std::vector<std::string> leftArmDownChar{"<", " ", "/", " "};
+        const std::vector<std::string> rightArmUpChar{" ", "/", " ", " "};
+        const std::vector<std::string> rightArmDownChar{">", " ", "\\", " "};
+        const std::vector<std::string> torso{" : ", "] [", "> <", "   "};
+        const std::vector<std::string> base{" : ", "\" \"", "___", "   "};
         const int hatIndex = 0;
         const int noseIndex = 1;
         const int leftEyeIndex = 2;
@@ -64,26 +64,26 @@ namespace ariel
         const int baseIndex = 7;
         vector<int> array = numToArray(num);
         std::string ans;
-        ans.append(ariel::hatsTops.at(array.at(hatIndex)));
+        ans.append(hatsTops.at(array.at(hatIndex)));
         ans.append("\n");
-        ans.append(ariel::hatsBottoms.at(array.at(hatIndex)));
+        ans.append(hatsBottoms.at(array.at(hatIndex)));
         ans.append("\n");
         ans.append((leftArmUpChar.at(array.at(leftArmIndex))));
         ans.append("(");
-        ans.append(ariel::eyes.at(array.at(leftEyeIndex)));
-        ans.append(ariel::nose.at(array.at(noseIndex)));
-        ans.append(ariel::eyes.at(array.at(rightEyeIndex)));
+        ans.append(eyes.at(array.at(leftEyeIndex)));
+        ans.append(nose.at(array.at(noseIndex)));
+        ans.append(eyes.at(array.at(rightEyeIndex)));
         ans.append(")");
         ans.append((rightArmUpChar.at(array.at(rightArmIndex))));
         ans.append("\n");
         ans.append((leftArmDownChar.at(array.at(leftArmIndex))));
         ans.append("(");
-        ans.append(ariel::torso.at(array.at(torsoIndex)));
+        ans.append(torso.at(array.at(torsoIndex)));
         ans.append(")");
         ans.append((rightArmDownChar.at(array.at(rightArmIndex))));
         ans.append("\n");
         ans.append(" (");
-        ans.append(ariel::base.at(array.at(baseIndex)));
+        ans.append(base.at(array.at(baseIndex)));
         ans.append(")");
         return ans;
     }
